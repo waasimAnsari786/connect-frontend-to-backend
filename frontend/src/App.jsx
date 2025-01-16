@@ -20,22 +20,27 @@ function App() {
   }, []);
 
   return (
-    <>
-      <h1>Randome Jokes</h1>
-      <p>Jokes : {jokes.length}</p>
+    <div className="container h-screen bg-lime-800 p-4 mx-auto ">
+      <div className=" flex justify-center">
+        <p className="text-white p-5 bg-lime-900 rounded-full text-6xl font-bold">
+          Randome Jokes
+        </p>
+      </div>
+      <p className="text-center text-white text-2xl">Jokes : {jokes.length}</p>
 
-      <div
-        style={{
-          width: "1000px",
-        }}
-      >
+      <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-5 mt-8">
         {jokes.map((joke) => (
-          <p key={joke.id} className="joke">
-            {joke.joke}
-          </p>
+          <div
+            key={joke.id}
+            className="card bg-lime-900 text-white hover:shadow-lg transition-all duration-300 hover:scale-105"
+          >
+            <div className="card-body">
+              <p>{joke.joke}</p>
+            </div>
+          </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
